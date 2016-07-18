@@ -1,0 +1,55 @@
+<header>
+    <h2>Add a new case to CanvecHub</h2>
+</header>
+<form [ngFormModel]="form" (ngSubmit)="onSubmit(form.value)">
+    <ul>
+        <li>
+            <label for="medium">Sessions</label>
+            <select name="medium" id="medium" required 
+                ngControl="medium">
+                <option *ngFor="#medium of lookupLists.mediums" value="{{medium}}">{{medium}}</option>
+            </select>
+        </li>
+        <li>
+            <label for="name">Title</label>
+            <input type="text" name="name" id="name" required
+                ngControl="name"
+                #name="ngForm">
+            <div *ngIf="name.errors?.pattern" class="error">
+                name has invalid characters
+            </div>
+        </li>
+        <li>
+            <label for="category">Category</label>
+            <select name="category" id="category"
+                ngControl="category">
+                <option value="Jugular vein">Jugular vein</option>
+                <option value="Portal vein">Portal vein</option>
+                <option value="Venous">Venous</option>
+                <option value="Deep vein">Deep vein</option>
+                <option value="Renal vein">Renal vein</option>
+                <option value="Arterial">Arterial</option>
+            </select>
+        </li>
+        <li>
+            <label for="year">Year</label>
+            <input type="text" name="year" id="year" maxlength="4"
+                ngControl="year"
+                #year="ngForm">
+            <div *ngIf="year.errors?.year" class="error">
+                must be between {{year.errors?.year.min}} and {{year.errors?.year.max}}
+            </div>
+        </li>
+        <li>
+            <label for="condition">Conditions</label>
+            <textarea type="text" name="conditions" 
+            rows="10" cols="50"></textarea>
+        </li>
+        <li>
+            <label for="treatment">Treatment</label>
+            <textarea type="text" name="treatment"
+             rows="10" cols="50"></textarea>
+        </li>
+    </ul>
+    <button type="submit" [disabled]="!form.valid">Save</button>
+</form>

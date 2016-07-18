@@ -1,0 +1,21 @@
+<nav>
+    <a [routerLink]="['./List', { medium: '' }]">
+        <img src="media/04.png" class="icon" />
+    </a>
+    <a [routerLink]="['./List', { medium: 'Editted' }]">
+        <img src="media/03.png" class="icon" />
+    </a>
+    <a [routerLink]="['./List', { medium: 'Submitted' }]">
+        <img src="media/02.png" class="icon" />
+    </a>
+    <a>
+        <img src="media/05.png" class="icon" />
+    </a>
+</nav>
+<section>
+    <header>
+        <h1>My case list</h1>
+        <p class="description">Keeping track of the cases I submitted and editted.</p>
+    </header>
+    <router-outlet></router-outlet>
+</section>
