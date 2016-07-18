@@ -1,1 +1,0 @@
-icon background color: 474e68;
